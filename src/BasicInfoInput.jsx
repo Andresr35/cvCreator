@@ -13,6 +13,10 @@ const BasicInfoInput = ({ basicInfo, setBasicInfo }) => {
     const newBasicInfo = { ...basicInfo, number: newNumber };
     setBasicInfo(newBasicInfo);
   };
+  const handleEmailChange = (newEmail) => {
+    const newBasicInfo = { ...basicInfo, email: newEmail };
+    setBasicInfo(newBasicInfo);
+  };
   return (
     <div>
       <label htmlFor="name">Please Enter Name</label>
@@ -36,6 +40,13 @@ const BasicInfoInput = ({ basicInfo, setBasicInfo }) => {
         pattern="\([0-9]{3}\)[0-9]{3}-[0-9]{4}"
         value={basicInfo.number}
         onChange={(e) => handleNumberChange(e.target.value)}
+      />
+      <label htmlFor="email">Please Enter Email</label>
+      <input
+        id="email"
+        type="text"
+        value={basicInfo.email}
+        onChange={(e) => handleEmailChange(e.target.value)}
       />
     </div>
   );

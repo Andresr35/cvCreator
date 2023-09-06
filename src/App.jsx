@@ -4,6 +4,8 @@ import { useState } from "react";
 import EducationInfoInput from "./EducationInfoInput";
 import ExperienceInfoInput from "./ExperienceInfoInput";
 import PersonalInfoInput from "./PersonalInfoInput";
+import Resume from "./Resume";
+import jsPDF from "jspdf";
 
 // So There shoud be a section on the left for things to add and the resume template on the right.
 function App() {
@@ -11,8 +13,8 @@ function App() {
     name: "John Appleseed",
     address: "1234 address ave, City , State, Zip Code",
     number: "(123)456-7890",
+    email: "email@domain.com",
   });
-
   const [personalInfo, setPersonalInfo] = useState(["Went to Sequioa"]);
   const [educationInfo, setEducationInfo] = useState([
     {
@@ -23,7 +25,6 @@ function App() {
       yearsAttending: "2020-2024",
     },
   ]);
-
   const [experienceInfo, setExperienceInfo] = useState([
     {
       job: "McDonalds",
@@ -59,6 +60,17 @@ function App() {
     });
     setEducationInfo(newExperienceInfo);
   };
+  const saveResume = () => {
+    const doc = new jsPDF({
+      orientation: "p",
+      unit: "pt",
+    });
+    doc.html(document.getElementById("Resume"), {
+      callback: (doc) => {
+        doc.save("resume");
+      },
+    });
+  };
 
   return (
     <>
@@ -85,6 +97,13 @@ function App() {
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
       />
+      <Resume
+        basicInfo={basicInfo}
+        personalInfo={personalInfo}
+        educationInfo={educationInfo}
+        experienceInfo={experienceInfo}
+      />
+      <button onClick={saveResume}>Save Resume</button>
     </>
   );
 }
