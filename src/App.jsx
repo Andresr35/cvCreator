@@ -1,9 +1,9 @@
 import "./App.css";
-import BasicInfoInput from "./BasicInfoInput";
+import BasicInfoInput from "./components/BasicInfoInput";
 import { useState } from "react";
-import EducationInfoInput from "./EducationInfoInput";
-import ExperienceInfoInput from "./ExperienceInfoInput";
-import PersonalInfoInput from "./PersonalInfoInput";
+import EducationInfoInput from "./components/EducationInfoInput";
+import ExperienceInfoInput from "./components/ExperienceInfoInput";
+import PersonalInfoInput from "./components/PersonalInfoInput";
 import Resume from "./Resume";
 import jsPDF from "jspdf";
 
@@ -58,7 +58,7 @@ function App() {
       yearsEmployed: "2020-2024",
       location: "Pomona,CA",
     });
-    setEducationInfo(newExperienceInfo);
+    setExperienceInfo(newExperienceInfo);
   };
   const saveResume = () => {
     const doc = new jsPDF({
@@ -74,29 +74,40 @@ function App() {
 
   return (
     <>
-      <BasicInfoInput basicInfo={basicInfo} setBasicInfo={setBasicInfo} />
+      <h1>Welcome to my resume builder!</h1>
+      <fieldset>
+        <h2>Basic Information:</h2>
+        <BasicInfoInput basicInfo={basicInfo} setBasicInfo={setBasicInfo} />
+      </fieldset>
       {educationInfo.map((school, schoolIndex) => (
-        <EducationInfoInput
-          key={schoolIndex}
-          schoolIndex={schoolIndex}
-          educationInfo={educationInfo}
-          setEducationInfo={setEducationInfo}
-        />
+        <fieldset key={schoolIndex}>
+          <h2>School #{schoolIndex + 1}:</h2>
+          <EducationInfoInput
+            schoolIndex={schoolIndex}
+            educationInfo={educationInfo}
+            setEducationInfo={setEducationInfo}
+          />
+        </fieldset>
       ))}
       <button onClick={handleNewSchool}>Add More Education</button>
       {experienceInfo.map((experience, experienceIndex) => (
-        <ExperienceInfoInput
-          key={experienceIndex}
-          experienceIndex={experienceIndex}
-          experienceInfo={experienceInfo}
-          setExperienceInfo={setExperienceInfo}
-        />
+        <fieldset key={experienceIndex}>
+          <ExperienceInfoInput
+            experienceIndex={experienceIndex}
+            experienceInfo={experienceInfo}
+            setExperienceInfo={setExperienceInfo}
+          />
+        </fieldset>
       ))}
       <button onClick={handleNewExperience}>Add More Experience</button>
-      <PersonalInfoInput
-        personalInfo={personalInfo}
-        setPersonalInfo={setPersonalInfo}
-      />
+
+      <fieldset>
+        <PersonalInfoInput
+          personalInfo={personalInfo}
+          setPersonalInfo={setPersonalInfo}
+        />
+      </fieldset>
+
       <Resume
         basicInfo={basicInfo}
         personalInfo={personalInfo}

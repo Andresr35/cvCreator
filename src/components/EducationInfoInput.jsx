@@ -53,10 +53,12 @@ const EducationInfoInput = ({
         />
       </label>
       <div>
-        Bullet Points:
+        <h4>Bullet Points:</h4>
+
         {educationInfo[schoolIndex] &&
           educationInfo[schoolIndex].points.map((point, index) => (
             <label key={index}>
+              Point {index + 1}:
               <input
                 type="text"
                 value={point}
