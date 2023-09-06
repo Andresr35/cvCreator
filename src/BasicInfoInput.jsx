@@ -14,7 +14,7 @@ const BasicInfoInput = ({ basicInfo, setBasicInfo }) => {
     setBasicInfo(newBasicInfo);
   };
   return (
-    <>
+    <div>
       <label htmlFor="name">Please Enter Name</label>
       <input
         id="name"
@@ -37,7 +37,7 @@ const BasicInfoInput = ({ basicInfo, setBasicInfo }) => {
         value={basicInfo.number}
         onChange={(e) => handleNumberChange(e.target.value)}
       />
-    </>
+    </div>
   );
 };
 BasicInfoInput.propTypes = {
