@@ -52,6 +52,24 @@ const EducationInfoInput = ({
           }}
         />
       </label>
+      <label>
+        School Address:
+        <input
+          type="text"
+          value={educationInfo[schoolIndex].address}
+          onChange={(e) => handleEducationInfoChange(e.target.value, "address")}
+        />
+      </label>
+      <label>
+        Years Attending:
+        <input
+          type="text"
+          value={educationInfo[schoolIndex].yearsAttending}
+          onChange={(e) =>
+            handleEducationInfoChange(e.target.value, "yearsAttending")
+          }
+        />
+      </label>
       <div>
         <h4>Bullet Points:</h4>
 
@@ -78,24 +96,6 @@ const EducationInfoInput = ({
         </label>
         <button onClick={handleNewPoint}>Submit</button>
       </div>
-      <label>
-        School Address:
-        <input
-          type="text"
-          value={educationInfo[schoolIndex].address}
-          onChange={(e) => handleEducationInfoChange(e.target.value, "address")}
-        />
-      </label>
-      <label>
-        Years Attending:
-        <input
-          type="text"
-          value={educationInfo[schoolIndex].yearsAttending}
-          onChange={(e) =>
-            handleEducationInfoChange(e.target.value, "yearsAttending")
-          }
-        />
-      </label>
     </div>
   );
 };

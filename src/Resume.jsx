@@ -13,10 +13,15 @@ const Resume = ({ basicInfo, personalInfo, educationInfo, experienceInfo }) => {
         <hr />
         {educationInfo.map((education, index) => (
           <div key={index}>
-            <h3>{education.school}</h3>
-            <p>{education.address}</p>
-            <p>{education.degree}</p>
-            <p>{education.yearsAttending}</p>
+            <div className="row">
+              <h3>{education.school}</h3>
+              <p>{education.address}</p>
+            </div>
+            <div className="row">
+              <p>{education.degree}</p>
+              <p>{education.yearsAttending}</p>
+            </div>
+
             <ul>
               {education.points.map((point, index) => (
                 <li key={index}>{point}</li>
@@ -28,12 +33,16 @@ const Resume = ({ basicInfo, personalInfo, educationInfo, experienceInfo }) => {
         <hr />
         {experienceInfo.map((experience, index) => (
           <div key={index}>
-            <h3>{experience.job}</h3>
-            <p>{experience.location}</p>
-            <p>{experience.description}</p>
-            <p>
-              <b>{experience.title}</b>
-            </p>
+            <div className="row">
+              <h3>{experience.job}</h3>
+              <p>{experience.location}</p>
+            </div>
+            <div className="row">
+              <p>{experience.description}</p>
+              <p>
+                <b>{experience.title}</b>
+              </p>
+            </div>
             <p>{experience.yearsEmployed}</p>
             <ul>
               {experience.points.map((point, index) => (

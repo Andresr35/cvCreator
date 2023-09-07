@@ -69,6 +69,9 @@ function App() {
       callback: (doc) => {
         doc.save("resume");
       },
+      margin: [10, 10, 10, 10],
+      width: 550,
+      windowWidth: 675,
     });
   };
 

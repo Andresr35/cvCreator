@@ -35,3 +35,29 @@ label {
   padding: 10px;
   display: block;
 }
+#Resume {
+  width: 100%;
+}
+#Resume h2,
+h4 {
+  text-align: center;
+  margin: 5px;
+}
+#Resume h3 {
+  display: inline;
+}
+#Resume p {
+  display: inline;
+}
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+#Resume h3,
+p {
+  margin: 0 0;
+}
+#Resume ul {
+  margin: 2px;
+}
