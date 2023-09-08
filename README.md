@@ -1,8 +1,15 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This project was made in conjuction with the Odin Project. It makes a resume using
+information a user inputs and allows for a PDF Download. [Link](https://www.theodinproject.com/lessons/node-path-react-new-cv-application)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Resources
+
+Here are links to the things I used during the project
+
+- [React](https://react.dev/)
+- [HeroIcons](https://heroicons.com/) Icons
+- [jsPDF](https://raw.githack.com/MrRio/jsPDF/master/docs/jsPDF.html) Module to save PDF's
+- [Real Time Colors](https://realtimecolors.com/) Helps pick out colors

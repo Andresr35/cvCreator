@@ -130,7 +130,4 @@ function App() {
 export default App;
 /**
  *
- * TODO: Expand to IPAD width.
- * TODO: Expand to Laptop width.
- * TODO: Make look more legit. Add trash icons and plus icons?
  */
