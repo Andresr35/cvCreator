@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Trash from "./Trash";
+import Add from "./Add";
 
 const ExperienceInfoInput = ({
   experienceIndex,
@@ -30,6 +32,7 @@ const ExperienceInfoInput = ({
   };
   return (
     <div>
+      <h2>Experience #{experienceIndex + 1}:</h2>
       <label>
         Job Name:
         <input
@@ -56,7 +59,7 @@ const ExperienceInfoInput = ({
           onChange={(e) => handleExperienceInfoChange(e.target.value, "title")}
         />
       </label>
-      Points:
+      <h4>Points:</h4>
       {experienceInfo[experienceIndex].points.map((point, index) => (
         <label key={index}>
           Point {index + 1}:
@@ -67,15 +70,22 @@ const ExperienceInfoInput = ({
               handlePointChange(e.target.value, index);
             }}
           />
-          <button onClick={() => handlePointDelete(index)}>delete</button>
+          <button onClick={() => handlePointDelete(index)}>
+            Delete <Trash />{" "}
+          </button>
         </label>
       ))}
-      <input
-        type="text"
-        value={point}
-        onChange={(e) => setPoint(e.target.value)}
-      />
-      <button onClick={handleNewPoint}>Add Point</button>
+      <label>
+        Add New Point:
+        <input
+          type="text"
+          value={point}
+          onChange={(e) => setPoint(e.target.value)}
+        />
+      </label>
+      <button onClick={handleNewPoint}>
+        Add Point <Add />
+      </button>
     </div>
   );
 };

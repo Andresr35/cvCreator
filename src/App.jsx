@@ -6,6 +6,7 @@ import ExperienceInfoInput from "./components/ExperienceInfoInput";
 import PersonalInfoInput from "./components/PersonalInfoInput";
 import Resume from "./Resume";
 import jsPDF from "jspdf";
+import Add from "./components/Add";
 
 // So There shoud be a section on the left for things to add and the resume template on the right.
 function App() {
@@ -92,7 +93,9 @@ function App() {
           />
         </fieldset>
       ))}
-      <button onClick={handleNewSchool}>Add More Education</button>
+      <button onClick={handleNewSchool}>
+        Add More Education <Add />{" "}
+      </button>
       {experienceInfo.map((experience, experienceIndex) => (
         <fieldset key={experienceIndex}>
           <ExperienceInfoInput
@@ -102,7 +105,9 @@ function App() {
           />
         </fieldset>
       ))}
-      <button onClick={handleNewExperience}>Add More Experience</button>
+      <button onClick={handleNewExperience}>
+        Add More Experience <Add />{" "}
+      </button>
 
       <fieldset>
         <PersonalInfoInput
@@ -123,3 +128,9 @@ function App() {
 }
 
 export default App;
+/**
+ *
+ * TODO: Expand to IPAD width.
+ * TODO: Expand to Laptop width.
+ * TODO: Make look more legit. Add trash icons and plus icons?
+ */

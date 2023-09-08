@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Trash from "./Trash";
+import Add from "./Add";
 
 const EducationInfoInput = ({
   educationInfo,
@@ -84,17 +86,23 @@ const EducationInfoInput = ({
                   handlePointChange(e.target.value, index);
                 }}
               />
-              <button onClick={() => handlePointDelete(index)}>Delete</button>
+              <button onClick={() => handlePointDelete(index)}>
+                Delete
+                <Trash />
+              </button>
             </label>
           ))}
         <label>
+          Add New Point:
           <input
             type="text"
             value={newPoint}
             onChange={(e) => setNewPoint(e.target.value)}
           />
         </label>
-        <button onClick={handleNewPoint}>Submit</button>
+        <button onClick={handleNewPoint}>
+          Add <Add />{" "}
+        </button>
       </div>
     </div>
   );

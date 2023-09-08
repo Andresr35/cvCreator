@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Trash from "./Trash";
+import Add from "./Add";
 
 const PersonalInfoInput = ({ personalInfo, setPersonalInfo }) => {
   const [point, setPoint] = useState("Add new point");
@@ -20,7 +22,7 @@ const PersonalInfoInput = ({ personalInfo, setPersonalInfo }) => {
   };
   return (
     <div>
-      Personal Info:
+      <h2>Personal Info:</h2>
       {personalInfo.map((currentPoint, index) => (
         <label key={index}>
           <input
@@ -28,15 +30,25 @@ const PersonalInfoInput = ({ personalInfo, setPersonalInfo }) => {
             value={currentPoint}
             onChange={(e) => handlePointChange(e.target.value, index)}
           />
-          <button onClick={() => handlePointDelete(index)}>Delete</button>
+          <button onClick={() => handlePointDelete(index)}>
+            Delete
+            <Trash />
+          </button>
         </label>
       ))}
-      <input
-        type="text"
-        value={point}
-        onChange={(e) => setPoint(e.target.value)}
-      />
-      <button onClick={handlePointAdd}>Add Point</button>
+      <label>
+        Add New Point:
+        <input
+          type="text"
+          value={point}
+          onChange={(e) => setPoint(e.target.value)}
+        />
+      </label>
+
+      <button onClick={handlePointAdd}>
+        Add Point
+        <Add />
+      </button>
     </div>
   );
 };

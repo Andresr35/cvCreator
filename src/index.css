@@ -1,39 +1,61 @@
 :root {
   padding: 15px;
   font-family: Helvetica, Arial, sans-serif;
+  /* --text: rgb(0, 0, 0);
+  --background: rgb(241, 244, 243);
+  --primary: rgb(209, 199, 202);
+  --secondary: rgb(214, 207, 205);
+  --accent: rgb(118, 96, 113); */
+  --text: rgb(12, 34, 39);
+  --background: rgb(243, 250, 251);
+  --primary: rgb(78, 24, 68);
+  --secondary: rgb(185, 224, 233);
+  --accent: rgb(142, 163, 51);
+  background-color: var(--background);
+  color: var(--text);
 }
 h1 {
   margin-top: 0;
   text-align: center;
-  background-color: rgba(41, 71, 5, 0.199);
-  border: 5px olive solid;
+  background-color: var(--background);
+  /* border: 5px var(--accent) solid; */
   border-radius: 10px;
+  color: var(--text);
 }
 h2 {
   margin: 10px;
 }
 fieldset {
-  border-color: olive;
-  border-radius: 10px;
-  background-color: rgba(41, 71, 5, 0.068);
+  color: white;
+  /* border-color: var(--accent); */
+  border-radius: 30px;
+  background-color: var(--primary);
   margin: 10px 0;
 }
 input {
-  color: black;
-  background-color: rgba(128, 128, 128, 0.089);
-  border-color: olive;
+  color: var(--text);
+  background-color: white;
+  /* border-color: var(--accent); */
   border-radius: 5px;
   text-align: center;
   margin: 0 auto;
   display: block;
 }
 label {
+  color: var(--text);
   text-align: center;
-  background-color: white;
-  border: 1px solid olive;
-  border-radius: 5px;
+  background-color: var(--secondary);
+  /* border: 1px solid var(--accent); */
+  border-radius: 15px;
   padding: 10px;
   display: block;
+  margin: 5px 0;
+}
+label:first-child {
+  margin-top: 0;
+}
+label:last-child {
+  margin-bottom: 0;
 }
 #Resume {
   width: 100%;
@@ -60,4 +82,33 @@ p {
 }
 #Resume ul {
   margin: 2px;
+}
+button {
+  background-color: var(--secondary);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 3px 20px;
+}
+label > input + button {
+  margin-top: 5px;
+}
+label > button {
+  background-color: var(--primary);
+  color: white;
+}
+button div {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+}
+#add,
+#trash {
+  color: var(--accent);
+}
+@media screen and (min-width: 480px) {
+  fieldset {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+  }
 }
